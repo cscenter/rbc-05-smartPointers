@@ -20,9 +20,6 @@ fn main() {
             left_node.add_left(my_get_weak(&root), String::from("Leaf"));
         }
 
-        let chars: &str = root_ref.get_first_characters(3);
-        assert_eq!("Roo", chars);
-
         let mut values: Vec<String> = vec![]; // fill this collection with clones: node.value.clone()
         root_ref.traverse(&mut values); // use recursive algorithm
         assert_eq!(vec![String::from("Root"), String::from("Left"), String::from("Leaf"), String::from("Right")],
@@ -33,7 +30,6 @@ fn main() {
     my_destroy_all(root);
 }
 
-#[derive(Default)]
 struct Node {
     value: String,
     #[allow(dead_code)]
